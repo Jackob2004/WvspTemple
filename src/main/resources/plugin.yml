@@ -1,0 +1,9 @@
+name: WvspTemple
+version: '${project.version}'
+main: me.shadow_warrior_.wvsptemple.WvspTemple
+api-version: 1.19
+authors: [ shadow_warrior_ ]
+description: Wvsp temple
+commands:
+  temp24535:
+    usage: <command>
