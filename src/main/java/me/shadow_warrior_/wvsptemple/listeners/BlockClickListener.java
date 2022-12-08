@@ -20,6 +20,7 @@ public class BlockClickListener implements Listener {
 
     @EventHandler
     public void onBlockClick(PlayerInteractEvent e) {
+        if(e.getAction() == null || e.getClickedBlock()== null || e.getClickedBlock().getType()== null) return;
         Player p = e.getPlayer();
         Material block = e.getClickedBlock().getType();
         Inventory inventory = Bukkit.createInventory(p, 9, ChatColor.GOLD + " " + ChatColor.BOLD + "Ulepszenia Swiatyni");
@@ -62,9 +63,7 @@ public class BlockClickListener implements Listener {
         if(e.getAction() == null) return;
         if (!p.hasPotionEffect(PotionEffectType.WATER_BREATHING)) return;
 
-        if (e.getAction() == Action.LEFT_CLICK_BLOCK && p.isSneaking() && block.equals(Material.ENCHANTMENT_TABLE)) {
-            p.openInventory(inventory);
-        }
+        if (e.getAction() == Action.LEFT_CLICK_BLOCK && p.isSneaking() && block.equals(Material.ENCHANTMENT_TABLE)) p.openInventory(inventory);
 
     }
 }
